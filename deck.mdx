@@ -1,24 +1,245 @@
-# SLIDE 1 - LIST
+import { Split, SplitRight, themes } from 'mdx-deck'
+export const theme = themes.book;
 
-* I am a bullet list item
-* I am another bullet list item
-* I am another bullet list item
+# Topics
+
+1. Frontend Folder Structure - _Best Practices from around the web_
+1. Documentation for React UI Components - `react-styleguidist`
+1. Atomic Design -  _What is that? Can it help us?_
+
+
+---
+<SplitRight>
+
+![](https://miro.medium.com/max/1000/0*Iwk8QtuPrabE6xqB.jpg)
+
+# 1. React Folder Structure
+
+"Code != Clothing, or How to neatly structure your code"
+
+
+</SplitRight>
 
 ---
 
-# SLIDE 2 - HEADERS
+## First stop: grouping files by “type”
 
-## Header 2
-### Header 3
-#### Header 4
-##### Header 5
+```
+src
+├── components
+│  └── ...
+│
+├── actions (action creators)
+│  ├── auth.js
+│  └── product.js
+│
+├── types (action types)
+│  ├── auth.js
+│  └── product.js
+│
+└── reducers
+    ├── auth.js
+    └── product.js
+```
 
 ---
 
-# SLIDE 3 - TABLE
+<SplitRight>
 
-| Fruit         | Weight   | Cost  |
-| ------------- | ---------| ----- |
-| Strawberries  | 16oz     | $3.99 |
-| Blueberries   | 8oz      | $2.99 |
-| Grapes        | 12oz     | $3.75 |
+![](http://aelia.co/wp-content/uploads/2012/10/SocksDrawer.jpg)
+
+# The Sock Drawer:
+You know where your socks are but how about your whole outfit?
+
+</SplitRight>
+
+---
+<SplitRight>
+
+![](https://thepracticaldev.s3.amazonaws.com/i/wj37tfyfb8flc8iwwo33.png)
+
+# A different (better?) approach:
+## The Uniform == Modularity
+
+</SplitRight>
+
+---
+
+## Grouping files by feature
+
+```
+src
+ ├── components <-- for basic, shared UI
+ │  ├── Button.js
+ │  ├── Select.js
+ │  └── ...
+ │
+ ├── auth
+ │  ├── components <-- components specific to the feature (likely won't be reused)
+ │  │  └── Login.js
+ │  │  └── PasswordReset.js
+ │  ├── actions.js
+ │  ├── reducers.js
+ │  ├── types.js
+ │  └── selectors.js
+ │
+ └── product
+    ├── components
+    ├── actions.js
+    ├── types.js
+    └── ...
+```
+
+---
+
+# Bottom line
+
+* What do we want as a team?
+
+* Status quo vs "group by feature"
+
+* Thoughts?
+
+---
+
+<SplitRight>
+
+![](https://miro.medium.com/max/4320/0*sK2b-qL04y4Zvcme)
+
+# 2. React-Styleguidist
+
+</SplitRight>
+
+---
+
+## Start documenting your components
+
+```jsx
+/**
+ * Description of the component if needed
+ */
+const Button = props => (...);
+
+Button.propTypes = {
+  /** No user action on button is allowed */
+  disabled: PropTypes.bool,
+
+  /** Primary theme color */
+  primary: PropTypes.bool,
+
+  /** Shadow effect */
+  raised: PropTypes.bool
+};
+```
+
+---
+
+<SplitRight>
+
+![](https://miro.medium.com/max/830/1*tOs2plcmZxC__3P_xvZwVA.png)
+
+The component above will produce this clear output in style guide:
+
+It's like **Swagger** but for UI code
+
+</SplitRight>
+
+---
+
+## Documentation lives next to the code! :tada:
+
+Styleguidist will look for **`README.md`** or **`ComponentName.md`** files by default.
+
+```
+components/
+  Button/
+    Button.js
+    Button.md  <--- here
+```
+
+**Button.md**
+```jsx
+<Button primary>Click me!</Button>
+```
+
+---
+
+<SplitRight>
+
+![](https://miro.medium.com/max/1376/1*K6yNtWLGWRCYEV8BNG8btQ.png)
+
+And the result looks like this:
+
+</SplitRight>
+
+---
+
+<SplitRight>
+
+![](https://bradfrost.com/wp-content/uploads/2013/06/atomic-design.png)
+
+# 3. Atomic Design
+
+https://atomicdesign.bradfrost.com/
+
+</SplitRight>
+
+---
+
+<SplitRight>
+
+![](https://atomicdesign.bradfrost.com/images/content/atoms-form-elements.png)
+
+# Atoms
+
+</SplitRight>
+
+---
+
+<SplitRight>
+
+![](https://atomicdesign.bradfrost.com/images/content/molecule-search-form.png)
+
+# Molecules
+
+</SplitRight>
+
+
+---
+
+<SplitRight>
+
+![](https://atomicdesign.bradfrost.com/images/content/organism-header.png)
+
+# Organisms
+
+</SplitRight>
+
+---
+
+<SplitRight>
+
+![](https://atomicdesign.bradfrost.com/images/content/template.png)
+
+# Pages
+
+</SplitRight>
+
+---
+
+# Links
+
+* React Folder Structure
+  * https://medium.com/hackernoon/my-journey-toward-a-maintainable-project-structure-for-react-redux-b05dfd999b5
+  * https://www.robinwieruch.de/react-folder-structure
+  * https://aelia.co/how-to-neatly-structure-your-code/
+  * https://www.codementor.io/@zmitry/react-app-structure-by-feature-guidelines-10wnfwp9eh
+  * https://softwareengineering.stackexchange.com/questions/338597/folder-by-type-or-folder-by-feature
+
+
+* React-Styleguidist
+  * https://react-styleguidist.js.org/
+
+* Atomic Design
+  * https://atomicdesign.bradfrost.com/
+

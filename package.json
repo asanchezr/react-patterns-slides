@@ -2,9 +2,10 @@
   "name": "react-patterns",
   "version": "1.0.0",
   "description": "Slides for Dev Team",
-  "main": "index.js",
   "scripts": {
-    "start": "mdx-deck deck.mdx"
+    "start": "mdx-deck deck.mdx",
+    "pdf": "mdx-deck pdf deck.mdx",
+    "build": "mdx-deck build deck.mdx"
   },
   "keywords": [
     "mdx",
