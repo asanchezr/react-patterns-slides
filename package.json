@@ -1,0 +1,19 @@
+{
+  "name": "react-patterns",
+  "version": "1.0.0",
+  "description": "Slides for Dev Team",
+  "main": "index.js",
+  "scripts": {
+    "start": "mdx-deck deck.mdx"
+  },
+  "keywords": [
+    "mdx",
+    "deck",
+    "slides"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "mdx-deck": "4.1.1"
+  }
+}
